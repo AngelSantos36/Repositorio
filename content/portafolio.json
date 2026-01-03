@@ -1,12 +1,20 @@
 {
   "items": [
     {
-      "title": "Reel Demo Barbería",
+      "title": "Reel Demo — Barbería",
       "type": "video",
-      "category": "Barbería",
+      "category": "Reels",
       "cover": "/assets/uploads/demo1.jpg",
       "link": "https://www.facebook.com/",
-      "desc": "Cortes, ritmo y subtítulos."
+      "desc": "Cortes, ritmo y subtítulos listos para publicar."
+    },
+    {
+      "title": "Retoque Foto — Producto",
+      "type": "foto",
+      "category": "Producto",
+      "cover": "/assets/uploads/demo2.jpg",
+      "link": "https://www.instagram.com/",
+      "desc": "Limpieza, color y enfoque para catálogo."
     }
   ]
 }
