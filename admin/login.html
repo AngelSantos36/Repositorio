@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Admin</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#0f1a2b;--text:#eaf0ff;--muted:#9fb0d0;--border:#1b2a44;--accent:#4f8cff;--shadow:0 18px 50px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;display:grid;place-items:center;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(79,140,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 30%, rgba(34,197,94,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    .card{
+      width:min(420px, 92vw);
+      background:rgba(15,26,43,.7);
+      border:1px solid rgba(27,42,68,.75);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px rgba(79,140,255,.15)}
+    h1{margin:14px 0 6px;font-size:1.35rem}
+    p{margin:0 0 14px;color:var(--muted);font-size:.95rem}
+    input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(27,42,68,.9);
+      background:rgba(11,21,38,.7);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus{border-color:rgba(79,140,255,.65)}
+    .row{display:flex;gap:10px;margin-top:12px}
+    button,a.btn{
+      flex:1;
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 12px;border-radius:12px;
+      border:1px solid rgba(27,42,68,.9);
+      background:rgba(15,26,43,.8);
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+      text-decoration:none;
+    }
+    button.primary{background:var(--accent);border-color:transparent}
+    .err{color:#ffcc66;margin-top:10px;min-height:20px;font-size:.9rem}
+    small{color:var(--muted);display:block;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand"><span class="dot"></span> Admin · Edición Pro</div>
+    <h1>Iniciar sesión</h1>
+    <p>Acceso solo para administradores. (Login visual)</p>
+
+    <input id="pass" type="password" placeholder="Contraseña" autocomplete="current-password" />
+    <div class="row">
+      <button class="primary" id="go">Entrar</button>
+      <a class="btn" href="/">Volver</a>
+    </div>
+    <div class="err" id="err"></div>
+    <small>Tip: cambia la clave en el código cuando quieras.</small>
+  </div>
+
+  <script>
+    // ⚠️ Esto NO es seguridad real. Es solo para ocultar el acceso.
+    const PASSWORD = "Admin1234"; // <-- CAMBIA ESTA CLAVE
+
+    const pass = document.getElementById('pass');
+    const err = document.getElementById('err');
+
+    function login(){
+      if (pass.value === PASSWORD){
+        sessionStorage.setItem('admin_ok', '1');
+        location.href = "/admin/";
+      } else {
+        err.textContent = "Clave incorrecta.";
+      }
+    }
+
+    document.getElementById('go').addEventListener('click', login);
+    pass.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') login(); });
+  </script>
+</body>
+</html>
