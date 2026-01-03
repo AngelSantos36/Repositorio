@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: TU_USUARIO/TU_REPO
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "portfolio"
+    label: "Portafolio"
+    file: "content/portfolio.json"
+    format: "json"
+    fields:
+      - label: "Trabajos"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Tipo", name: "type", widget: "select", options: ["video","foto"] }
+          - { label: "Categoría", name: "category", widget: "string", required: false }
+          - { label: "Imagen portada", name: "cover", widget: "image", required: false }
+          - { label: "Link (reel/video)", name: "link", widget: "string", required: false }
+          - { label: "Descripción", name: "desc", widget: "text", required: false }
