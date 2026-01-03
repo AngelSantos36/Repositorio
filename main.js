@@ -5,29 +5,31 @@ async function loadPortfolio() {
   try {
     const res = await fetch('/content/portfolio.json', { cache: 'no-store' });
     const data = await res.json();
+    const items = data.items || [];
 
-    grid.innerHTML = (data.items || []).map(item => `
+    if (!items.length) {
+      grid.innerHTML = `<div class="work-card"><div class="work-body"><h3>Aún no hay trabajos</h3><p>Agrega items en content/portfolio.json desde /admin.</p></div></div>`;
+      return;
+    }
+
+    grid.innerHTML = items.map(item => `
       <a class="work-card" href="${item.link || '#'}" target="_blank" rel="noopener">
-        ${item.cover
-          ? `<img class="work-img" src="${item.cover}" alt="${item.title}">`
-          : `<div class="work-img placeholder">Demo</div>`
-        }
+        <div class="work-img">
+          ${item.cover ? `<img src="${item.cover}" alt="${item.title || ''}">` : 'Sin portada'}
+        </div>
         <div class="work-body">
           <h3>${item.title || 'Trabajo'}</h3>
           <p>${item.desc || ''}</p>
-          <div class="work-meta">
+          <div class="meta">
             <span class="pill">${item.type || 'video'}</span>
-            ${item.category ? `<span class="pill ghost">${item.category}</span>` : ''}
+            ${item.category ? `<span class="pill">${item.category}</span>` : ''}
           </div>
         </div>
       </a>
     `).join('');
 
   } catch (e) {
-    console.error(e);
-    grid.innerHTML = `<p class="note">No se pudo cargar el portafolio. Revisa content/portfolio.json</p>`;
+    grid.innerHTML = `<div class="work-card"><div class="work-body"><h3>Error cargando portafolio</h3><p>Revisa content/portfolio.json</p></div></div>`;
   }
 }
-
 loadPortfolio();
-
