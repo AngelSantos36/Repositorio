@@ -6,26 +6,139 @@
   <title>Portafolio | Edición de Video y Foto</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <span>Edición Pro</span>
+  </div>
 
-  <header class="topbar">
-    <div class="brand">Edición Pro</div>
+  <nav class="nav">
+    <a href="#servicios">Servicios</a>
+    <a href="#portafolio">Portafolio</a>
+    <a href="#precios">Precios</a>
     <a class="admin-link" href="/admin/">Admin</a>
-  </header>
+  </nav>
+</header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>Edición de Video & Foto</h1>
-      <p>Contenido profesional para redes y negocios.</p>
-      <a class="btn" href="https://wa.me/57TU_NUMERO" target="_blank">Cotizar por WhatsApp</a>
-    </section>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-left">
+      <p class="badge">Edición profesional para redes</p>
+      <h1>Videos que venden. Fotos que se ven premium.</h1>
+      <p class="sub">
+        Reels, Shorts, Ads y retoque de producto. Entregas rápidas, estilo limpio, resultados claros.
+      </p>
 
-    <section class="portfolio">
-      <h2>Portafolio</h2>
-      <div id="portfolioGrid" class="grid"></div>
-    </section>
-  </main>
+      <div class="cta">
+        <a class="btn" href="https://wa.me/57TU_NUMERO" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        <a class="btn ghost" href="#portafolio">Ver trabajos</a>
+      </div>
 
-  <script src="main.js"></script>
-</body>
+      <div class="trust">
+        <div class="trust-item"><strong>24–48h</strong><span>Entrega</span></div>
+        <div class="trust-item"><strong>1</strong><span>Ronda de cambios</span></div>
+        <div class="trust-item"><strong>Full HD</strong><span>Export pro</span></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="mock">
+        <div class="mock-top">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mock-body">
+          <p class="mock-title">Antes / Después</p>
+          <p class="mock-text">Muestras demo con estilo comercial.</p>
+          <div class="mock-grid">
+            <div class="ph"></div>
+            <div class="ph"></div>
+            <div class="ph"></div>
+            <div class="ph"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="section">
+    <h2>Servicios</h2>
+    <p class="section-sub">Paquetes claros. Edición limpia. Nada de humo.</p>
+
+    <div class="cards">
+      <article class="card">
+        <h3>🎬 Reels / Shorts</h3>
+        <p>Cortes, ritmo, subtítulos y formato 9:16 listo para publicar.</p>
+        <ul>
+          <li>Subtítulos</li>
+          <li>Color básico</li>
+          <li>Música/sonido</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>📸 Foto para redes</h3>
+        <p>Retoque, limpieza, color y enfoque visual para que se vea pro.</p>
+        <ul>
+          <li>Antes/Después</li>
+          <li>Corrección de color</li>
+          <li>Optimización para IG/FB</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🛍️ Foto producto</h3>
+        <p>Ideal para catálogo y tiendas. Fondo limpio, detalle y nitidez.</p>
+        <ul>
+          <li>Fondo blanco/limpio</li>
+          <li>Recorte pro</li>
+          <li>Consistencia de marca</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="portafolio" class="section">
+    <h2>Portafolio</h2>
+    <p class="section-sub">Aquí es donde hablo con hechos.</p>
+    <div id="portfolioGrid" class="grid"></div>
+    <p class="note">*Contenido demostrativo mientras entran los primeros clientes.</p>
+  </section>
+
+  <section id="precios" class="section">
+    <h2>Precios base</h2>
+    <p class="section-sub">Para que nadie juegue al “¿y cuánto cobras?”</p>
+
+    <div class="pricing">
+      <div class="price">
+        <h3>Reel Básico</h3>
+        <p class="money">desde $80.000</p>
+        <p class="small">15–30s · 1 ronda · formato 9:16</p>
+      </div>
+      <div class="price featured">
+        <h3>Reel Pro</h3>
+        <p class="money">desde $150.000</p>
+        <p class="small">30–60s · subtítulos · mejor ritmo</p>
+      </div>
+      <div class="price">
+        <h3>Foto Pro</h3>
+        <p class="money">desde $15.000</p>
+        <p class="small">retoque · color · listo para redes</p>
+      </div>
+    </div>
+
+    <div class="final-cta">
+      <p><strong>¿Listo?</strong> Me mandas material y te digo el precio cerrado.</p>
+      <a class="btn" href="https://wa.me/57TU_NUMERO" target="_blank" rel="noopener">Escríbeme</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Edición Pro · Hecho para vender, no para decorar.</p>
+  </footer>
+</main>
+
+<script src="main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </html>
+
