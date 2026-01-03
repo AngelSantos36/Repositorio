@@ -146,6 +146,10 @@
     }
     document.getElementById('reload').addEventListener('click', load);
     load();
+      if (sessionStorage.getItem('admin_ok') !== '1') {
+        location.href = "/admin/login.html";
+        }
   </script>
 </body>
 </html>
+
